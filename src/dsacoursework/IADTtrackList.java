@@ -10,15 +10,11 @@ package dsacoursework;
  * @author user
  */
 public interface IADTtrackList {
-  /*
-    * returns the number of elements in the List
-    */
-    public int length();
 
    /*
     * create an empty List
     */
-    public void createList();
+    public void displayGenre(String s);
 
     /*
     * display a List on screen
@@ -39,4 +35,5 @@ public interface IADTtrackList {
     * see if s is in the List, returns true or false
     */
     public boolean findTitle(String s);
+     public boolean findArtist(String s);
 }

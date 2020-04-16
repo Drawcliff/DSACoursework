@@ -51,6 +51,7 @@ public class DSACoursework {
    
         //cc.addLast(track2);
         cc.printList();
+        cc.displayGenre("test first");
         cc.findTitle("dddd");
         
     }
