@@ -31,20 +31,26 @@ public class TrackList implements IADTtrackList{
     @Override
     public void displayGenre(String s) {
          Node current=head;
-         System.out.println(s+" Genre");
+         boolean find=false;
+            System.out.format("\033[31m%s\033[0m%n", "GENRE: "+s);
            System.out.format("\033[31m%s\033[0m%n", "==========");
        while(current!=null){
        if(current.data.getGenre().equals(s)){
        System.out.println(current.data);
+       find=true;
        }
        current=current.next;
       
+       }
+       if(find=false){
+            System.out.println(s+" Genre is not in the list");
+         System.out.format("\033[31m%s\033[0m%n", "==========");
        }
     }
 
     @Override
     public void printList() {
-       System.out.println("All the Tracks ");
+       System.out.format("\033[31m%s\033[0m%n", "ALL THE TRACKS");
          System.out.format("\033[31m%s\033[0m%n", "==========");
        Node current=head;
        while(current!=null){
@@ -55,9 +61,7 @@ public class TrackList implements IADTtrackList{
        }
        }
     
-    public void question1() {
-        
-    }
+    
 
     @Override
     public void insert(Track s) {
@@ -75,10 +79,6 @@ public class TrackList implements IADTtrackList{
         } 
 }
 
-    @Override
-    public String remove(String s) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
   @Override
     public boolean findTitle(String s) {
@@ -92,10 +92,11 @@ public class TrackList implements IADTtrackList{
        while(current!=null){
       
        if(current.data.getTrackTitle().equals(s)){
-       current=null;
+     
        find=true;
        System.out.println(s +" is in the List");
          System.out.format("\033[31m%s\033[0m%n", "==========");
+       break;
        }
        current=current.next;
        } 
@@ -119,10 +120,10 @@ return find;
        while(current!=null){
       
        if(current.data.getArtist().equals(s)){
-       current=null;
        find=true;
        System.out.println(s +" is in the List");
          System.out.format("\033[31m%s\033[0m%n", "==========");
+          break;
        }
        current=current.next;
        } 
@@ -131,8 +132,7 @@ return find;
          System.out.format("\033[31m%s\033[0m%n", "==========");
        }
           }
-// to get here we fell off the end of the list
-// so can’t be in the list
+
 return find;
     }
    

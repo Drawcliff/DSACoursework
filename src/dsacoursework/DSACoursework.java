@@ -40,10 +40,10 @@ public class DSACoursework {
         Track track2=new Track(id,title,artist,length,composer,releaseDate,album,genre);*/
              TrackList cc =new TrackList();
              
-        cc.insert(new Track(2, "ee", "test first", "test first", "test first", "test first", "test first", "test first"));    
-        cc.insert(new Track(14, "Clifford", "Clifford", "test first", "test first", "test first", "test first", "test first"));    
-        cc.insert(new Track(66, "ee", "test first", "test first", "test first", "test first", "test first", "test first"));    
-        cc.insert(new Track(98, "ee", "test first", "test first", "test first", "test first", "test first", "Clifford"));    
+        cc.insert(new Track(2, "Haikyuu", "Haikyuu", "test first", "test first", "test first", "test first", "Horror"));    
+        cc.insert(new Track(14, "Goosebumb", "Clifford", "test first", "test first", "test first", "test first", "Horror"));    
+        cc.insert(new Track(66, "Percy Jackson", "Daniel", "test first", "test first", "test first", "test first", "Fantasy"));    
+        cc.insert(new Track(98, "Harry Potter", "J k rowling", "test first", "test first", "test first", "test first", "Horror"));    
       //  cc.insert(track2);
         //Displays the nodes present in the list    
          
@@ -51,8 +51,8 @@ public class DSACoursework {
    
         //cc.addLast(track2);
         cc.printList();
-        cc.displayGenre("test first");
-        cc.findTitle("dddd");
+        cc.displayGenre("Horror");
+        cc.findTitle("Haikyuu");
         
     }
     

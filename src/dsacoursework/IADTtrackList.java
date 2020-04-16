@@ -26,10 +26,6 @@ public interface IADTtrackList {
     */
     public void insert(Track s);
 
-    /*
-    * remove s from List, returning s or null
-    */
-    public String remove(String s);
 
     /*
     * see if s is in the List, returns true or false
