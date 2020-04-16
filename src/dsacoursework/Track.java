@@ -80,5 +80,9 @@ public class Track {
           this.genre=genre;
      }
      
+          public String toString() {
+              final char EOLN='\n';    
+        return "Track ID: "+this.trackId +EOLN+ " Title:"+this.trackTitle+EOLN+" Artist:"+this.artist+EOLN+" Length:"+this.trackLength+EOLN+" Composer:"+this.composer+EOLN+" Release Date:"+this.getReleaseDate()+EOLN+" Album:"+this.album+EOLN+" Genre:"+this.genre+EOLN;
+     }
      
 }
