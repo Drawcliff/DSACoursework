@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author mga
+ * @author Clifford
  */
 public class InputHelper {
     private final Scanner reader;

@@ -7,12 +7,14 @@ package dsacoursework;
 
 /**
  *
- * @author user
+ * @author Clifford
  */
 public interface IADTtrackList {
-
-   /*
-    * create an empty List
+    
+    public void addSong();
+   
+    /*
+    * display a  particular genre List on screen
     */
     public void displayGenre(String s);
 

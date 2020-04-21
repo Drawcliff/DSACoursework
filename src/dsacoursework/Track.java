@@ -7,7 +7,7 @@ package dsacoursework;
 
 /**
  *
- * @author user
+ * @author Clifford
  */
 public class Track {
     private final int trackId;
@@ -22,6 +22,16 @@ public class Track {
     static final char EOLN='\n';       
     static final String QUOTE="\""; 
     
+     /**
+     *
+     * @param trackTitle
+     * @param artist
+     * @param trackLength
+     * @param composer
+     * @param releaseDate
+     * @param album
+     * @param genre
+     */
     public Track(String trackTitle ,String artist,String trackLength,String composer,String releaseDate,String album,String genre) {
         this.trackId = ++lastIdAllocated;
         this.trackTitle=trackTitle;
@@ -33,7 +43,16 @@ public class Track {
            this.genre=genre;
               
     }
-    
+   /**
+     *@param trackId
+     * @param trackTitle
+     * @param artist
+     * @param trackLength
+     * @param composer
+     * @param releaseDate
+     * @param album
+     * @param genre
+     */ 
     public Track( int trackId, String trackTitle ,String artist,String trackLength,String composer,String releaseDate,String album,String genre){
     
            this.trackId=trackId;
@@ -51,7 +70,7 @@ public class Track {
            
      
  
-    
+     // Methods required: getters, setters, equals, compareTo,toString 
      public int getTrackId(){
          return this.trackId;
      }
@@ -102,7 +121,7 @@ public class Track {
     public int compareTo(Track compareTrack) {
        int restId = ((Track) compareTrack).getTrackId(); 
 		
-		//ascending order
+		//ascending order based on id 
 		return this.trackId - restId;
 		
 		
@@ -111,7 +130,7 @@ public class Track {
         public int compareArtist(Track compareTrack) {
        String trartist = ((Track) compareTrack).getArtist(); 
 		
-		//ascending order
+		//ascending order based on artist 
 		return this.artist.compareTo(trartist);
 		
 		
@@ -120,7 +139,7 @@ public class Track {
                public int compareArtistDesc(Track compareTrack) {
        String trartist = ((Track) compareTrack).getArtist(); 
 		
-		//ascending order
+		//descending order based on artist 
 		return trartist.compareTo(this.artist);
 		
 		

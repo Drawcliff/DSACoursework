@@ -11,10 +11,14 @@ import java.io.IOException;
 
 /**
  *
- * @author user
+ * @author Clifford
  */
 public class TrackBST  {
-    
+        protected Node root;
+        static final char DELIMITER=',';   
+        protected boolean addReturn;
+        TrackBST repository,repository2, repository3;
+        
      protected static class Node {
         // Data Fields
 
@@ -37,23 +41,8 @@ public class TrackBST  {
             right = null;
         }
 
-        // Methods
-        /**
-         * Returns a string representation of the node.
-         *
-         * @return A string representation of the data fields
-         */
-    
     }
     
-    /*</listing>*/
-    // Data Field
-    /**
-     * The root of the binary tree
-     */
-    protected Node root;
-static final char DELIMITER=',';   
- protected boolean addReturn;
     public TrackBST() {
         root = null;
     }
@@ -77,9 +66,7 @@ static final char DELIMITER=',';
             root.right = null;
         }
     }
-TrackBST repository;
-TrackBST repository2;
-TrackBST repository3;
+
  public TrackBST loadData(String filename) {
         
          repository = new TrackBST();
@@ -113,28 +100,28 @@ TrackBST repository3;
         //repository.traverse();
         return repository;
  }
- 
+ //display all tracks ascending based on the artist name
  public void displayArtist(){
   System.out.format("\033[31m%s\033[0m%n", "ALL THE ARTIST IN ORDER");
   System.out.format("\033[31m%s\033[0m%n", "==========");
  repository.traverse();
  
  }
- 
+ // display all tracks ascending based on id
   public void displayTrack(){
         System.out.format("\033[31m%s\033[0m%n", "ALL THE TRACKS IN ORDER");
   System.out.format("\033[31m%s\033[0m%n", "==========");
  repository2.traverse();
  
  }
-  
+ //display all tracks descending based on the artist name  
    public void displayTrackDesc(){
    System.out.format("\033[31m%s\033[0m%n", "ALL THE ARTIST IN DESCENDING ORDER");
   System.out.format("\033[31m%s\033[0m%n", "==========");    
  repository3.traverse();
  
  }
-   
+   //display all artistname in the tracks 
    public void displayArtistName(){
    System.out.format("\033[31m%s\033[0m%n", "ALL THE ARTIST NAME IN THE TRACKLIST");
   System.out.format("\033[31m%s\033[0m%n", "==========");    
@@ -142,13 +129,7 @@ TrackBST repository3;
  
  }
   
-    public Track getData() {
-        if (root != null) {
-            return root.data;
-        } else {
-            return null;
-        }
-    }
+    
 
 public boolean add(Track item) {
         root = add(root, item);
@@ -156,7 +137,7 @@ public boolean add(Track item) {
     }
 
     /**
-     * Recursive add method.
+     * Recursive add method use also to insert based on ID
      * @post The data field addReturn is set true if the item is added to
      *       the tree, false if the item is already in the tree.
      * @param localRoot The local root of the subtree
@@ -190,7 +171,7 @@ public boolean add(Track item) {
     }
 
     /**
-     * Recursive add method.
+     * Recursive add method use also to insert based on artist
      * @post The data field addReturn is set true if the item is added to
      *       the tree, false if the item is already in the tree.
      * @param localRoot The local root of the subtree
@@ -224,7 +205,7 @@ public boolean add(Track item) {
     }
 
     /**
-     * Recursive add method.
+     * Recursive add method use also to insert based on artist name in descending 
      * @post The data field addReturn is set true if the item is added to
      *       the tree, false if the item is already in the tree.
      * @param localRoot The local root of the subtree
@@ -252,7 +233,7 @@ public boolean add(Track item) {
         }
     }
     
-    
+    //printout the binary tree
        public void traverse()
      {
          traverseInOrder(root);
@@ -264,7 +245,7 @@ public boolean add(Track item) {
         traverseInOrder(node.right);
     }
 }
-
+//printout binary tree but just the artist name
             public void showArtist()
      {
          showArtist(root);

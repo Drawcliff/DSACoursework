@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author user
+ * @author Clifford
  */
 public class TrackList implements IADTtrackList{
   Node head=null;
@@ -27,6 +27,9 @@ public class TrackList implements IADTtrackList{
     
    
    }
+     /*
+    * display a  particular genre List on screen
+    */
     @Override
     public void displayGenre(String s) {
          Node current=head;
@@ -47,10 +50,11 @@ public class TrackList implements IADTtrackList{
        }
     }
 
-       
-              public void addSong(){
-                  Scanner scanner = new Scanner(System.in); 
-           System.out.println("Enter your Track ID: ");
+       //add song to list 
+  @Override
+        public void addSong(){
+        Scanner scanner = new Scanner(System.in); 
+        System.out.println("Enter your Track ID: ");
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Enter your Track Title: ");
         String title = scanner.nextLine();
@@ -70,14 +74,17 @@ public class TrackList implements IADTtrackList{
         TrackList cc =new TrackList();
         cc.insert(track2);
        }
-              
+        
+    /*
+    * display a List on screen
+    */         
+        
     @Override
     public void printList() {
        System.out.format("\033[31m%s\033[0m%n", "ALL THE TRACKS");
          System.out.format("\033[31m%s\033[0m%n", "==========");
        Node current=head;
        while(current!=null){
-      // current.toString(); 
        System.out.println(current.data);
        current=current.next;
       
@@ -85,7 +92,9 @@ public class TrackList implements IADTtrackList{
        }
     
     
-
+    /*
+    * Add s to List
+    */
     @Override
     public void insert(Track s) {
         Node  newData = new Node(s);
@@ -101,7 +110,9 @@ public class TrackList implements IADTtrackList{
         } 
 }
 
-
+    /*search for title in the list
+    * see if s is in the List, returns true or false
+    */
   @Override
     public boolean findTitle(String s) {
         boolean find = false;
@@ -130,7 +141,9 @@ public class TrackList implements IADTtrackList{
 return find;
     }
     
-    
+   /*search for artist in the list
+    * see if s is in the List, returns true or false
+    */ 
   @Override
         public boolean findArtist(String s) {
         boolean find = false;

@@ -5,14 +5,13 @@
  */
 package dsacoursework;
 
-import java.util.Scanner;
-
 /**
  *
- * @author user
+ * @author Clifford
  */
 public class DSACoursework {
 
+    //menu to carry out all aspects of parts 1, 2 & 3 in the coursework
       public void run() {
           TrackList cc =new TrackList();
              
@@ -23,7 +22,7 @@ public class DSACoursework {
          cc.insert(new Track(99, "Harry Potter and prisoner of azkabam", "J k rowling", "test first", "test first", "test first", "test first", "Horror"));    
      
         TrackBST trackBst= new TrackBST();
-         Scanner scanner = new Scanner(System.in); 
+         trackBst.loadData("Test.txt");
         boolean finished = false;
         do {
             
@@ -33,9 +32,13 @@ public class DSACoursework {
         System.out.println("\tB. Add a song ");        
         System.out.println("\tC. Search for a specific song/track by Title");
         System.out.println("\tD. Search for a specific song/track by Artist");  
-        System.out.println("\tE. List for songs by Genre");  
+        System.out.println("\tE. List for songs by Genre");
+        System.out.println("\tF. Display a list of all the song's in ascending Artist order from text file: ");
+        System.out.println("\tG. Display a list of all the song's in descending Artist order from text file: ");
+        System.out.println("\tH. Display a list of all the song’s that are available for use in the text file: ");
+        System.out.println("\tI. Display a list of all the Artist names for all the song’s in the text file: ");
         System.out.println("\tQ. Quit\n");  
-        char choice = inputHelper.readCharacter("Enter choice", "ABCDEQ");
+        char choice = inputHelper.readCharacter("Enter choice", "ABCDEFGHIQ");
       
             switch (choice) {
                 case 'A': 
@@ -45,19 +48,28 @@ public class DSACoursework {
                   cc.addSong();
                     break;
                 case 'C': 
-                   System.out.println("Enter your Track Title: ");
-                    String title = scanner.nextLine();
+                    String title = inputHelper.readString("Enter your Track Title:");    
                     cc.findTitle(title);
                     break;                    
                 case 'D': 
-                   System.out.println("Enter your Artist Name: ");
-                    String artist = scanner.nextLine();
+                    String artist =  inputHelper.readString("Enter your Artist Name:");    
                     cc.findArtist(artist);
                     break;
                 case 'E': 
-                   System.out.println("Enter your Genre to look for: ");
-                    String genre = scanner.nextLine();
+                    String genre = inputHelper.readString("Enter your Genre to look for:");    
                     cc.displayGenre(genre);
+                    break;
+                case 'F': 
+                    trackBst.displayArtist();
+                    break;
+                case 'G': 
+                    trackBst.displayTrackDesc();
+                    break;
+                case 'H': 
+                    trackBst.displayTrack();
+                    break;
+                case 'I': 
+                    trackBst.displayArtistName();
                     break;
                 case 'Q': 
                     finished = true;
@@ -73,21 +85,8 @@ public class DSACoursework {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Scanner scanner = new Scanner(System.in); 
-    
-          
-        
         DSACoursework course = new DSACoursework();
         course.run();
-        //TrackBST Node =new TrackBST();
-       // Node.loadData("Test.txt");
-        //Node.add(new Track(2, "Haikyuu", "Haikyuu", "test first", "test first", "test first", "test first", "Horror"));
-        //Node.add(new Track(98, "Harry Potter", "J k rowling", "test first", "test first", "test first", "test first", "Horror"));
-        //Node.add(new Track(50, "Harry Potter", "J k rowling", "test first", "test first", "test first", "test first", "Horror"));
-       // Node.displayArtist();
-     //  Node.displayTrack();
-    //   Node.displayTrackDesc();
-      // Node.displayArtistName();
         
     }
     
