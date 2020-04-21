@@ -5,14 +5,15 @@
  */
 package dsacoursework;
 
+import java.util.Scanner;
+
 /**
  *
  * @author user
  */
 public class TrackList implements IADTtrackList{
   Node head=null;
-  private int size = 0;
- 
+   
     
     public class Node{
    
@@ -26,8 +27,6 @@ public class TrackList implements IADTtrackList{
     
    
    }
-
-
     @Override
     public void displayGenre(String s) {
          Node current=head;
@@ -48,6 +47,30 @@ public class TrackList implements IADTtrackList{
        }
     }
 
+       
+              public void addSong(){
+                  Scanner scanner = new Scanner(System.in); 
+           System.out.println("Enter your Track ID: ");
+        int id = Integer.parseInt(scanner.nextLine());
+        System.out.println("Enter your Track Title: ");
+        String title = scanner.nextLine();
+        System.out.println("Enter your Artist Name: ");
+        String artist = scanner.nextLine();
+        System.out.println("Enter your Track Length: ");
+        String length = scanner.nextLine();
+        System.out.println("Enter your Track composer: ");
+        String composer = scanner.nextLine();
+        System.out.println("Enter your Release Date: ");
+        String releaseDate = scanner.nextLine();
+        System.out.println("Enter your Album: ");
+        String album = scanner.nextLine();
+        System.out.println("Enter your Genre: ");
+        String genre = scanner.nextLine();
+        Track track2=new Track(id,title,artist,length,composer,releaseDate,album,genre);
+        TrackList cc =new TrackList();
+        cc.insert(track2);
+       }
+              
     @Override
     public void printList() {
        System.out.format("\033[31m%s\033[0m%n", "ALL THE TRACKS");
@@ -74,7 +97,6 @@ public class TrackList implements IADTtrackList{
         else {
           newData.next=head;
           head=newData;
-          size++;
             
         } 
 }
@@ -105,10 +127,11 @@ public class TrackList implements IADTtrackList{
          System.out.format("\033[31m%s\033[0m%n", "==========");
        }
           }
-// to get here we fell off the end of the list
-// so can’t be in the list
 return find;
     }
+    
+    
+  @Override
         public boolean findArtist(String s) {
         boolean find = false;
           Node current=head;

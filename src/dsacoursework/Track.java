@@ -18,6 +18,21 @@ public class Track {
     private  String releaseDate;
     private  String album;
     private  String genre;
+    private static int lastIdAllocated = 0;
+    static final char EOLN='\n';       
+    static final String QUOTE="\""; 
+    
+    public Track(String trackTitle ,String artist,String trackLength,String composer,String releaseDate,String album,String genre) {
+        this.trackId = ++lastIdAllocated;
+        this.trackTitle=trackTitle;
+           this.artist=artist;
+           this.trackLength=trackLength;
+           this.composer=composer;
+           this.releaseDate=releaseDate;
+           this.album=album;
+           this.genre=genre;
+              
+    }
     
     public Track( int trackId, String trackTitle ,String artist,String trackLength,String composer,String releaseDate,String album,String genre){
     
@@ -30,7 +45,11 @@ public class Track {
            this.album=album;
            this.genre=genre;
            
+             if (trackId > Track.lastIdAllocated)
+            Track.lastIdAllocated = trackId;            
     }
+           
+     
  
     
      public int getTrackId(){
@@ -79,10 +98,46 @@ public class Track {
           public void setGenre(String genre){
           this.genre=genre;
      }
-     
+          
+    public int compareTo(Track compareTrack) {
+       int restId = ((Track) compareTrack).getTrackId(); 
+		
+		//ascending order
+		return this.trackId - restId;
+		
+		
+    }
+    
+        public int compareArtist(Track compareTrack) {
+       String trartist = ((Track) compareTrack).getArtist(); 
+		
+		//ascending order
+		return this.artist.compareTo(trartist);
+		
+		
+    }
+        
+               public int compareArtistDesc(Track compareTrack) {
+       String trartist = ((Track) compareTrack).getArtist(); 
+		
+		//ascending order
+		return trartist.compareTo(this.artist);
+		
+		
+    }
+    
+    
+    @Override
           public String toString() {
-              final char EOLN='\n';    
         return "Track ID: "+this.trackId +EOLN+ " Title:"+this.trackTitle+EOLN+" Artist:"+this.artist+EOLN+" Length:"+this.trackLength+EOLN+" Composer:"+this.composer+EOLN+" Release Date:"+this.getReleaseDate()+EOLN+" Album:"+this.album+EOLN+" Genre:"+this.genre+EOLN;
      }
+          
+        public String toString(char delimiter) {     
+        String str =    Integer.toString(this.trackId) + delimiter + QUOTE + this.trackTitle + QUOTE + delimiter +
+                QUOTE + this.artist + QUOTE + delimiter +QUOTE+ this.trackLength +QUOTE+delimiter+QUOTE+ this.composer +QUOTE+delimiter+
+                QUOTE+ this.releaseDate +QUOTE+delimiter+QUOTE+ this.album +QUOTE+delimiter+QUOTE+ this.genre +QUOTE+delimiter+ EOLN;
+       
+        return str;
+    } 
      
 }
